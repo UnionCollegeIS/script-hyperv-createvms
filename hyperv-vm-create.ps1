@@ -1,17 +1,13 @@
-#------------------------------------------------------------------------------#
-# Purpose:                                                                     #
-#   Create multiple virtual machines with differencing disks                   #
-# Contributors:                                                                #
-#   Shane Flowers                                                              #
-#   Keith Wade                                                                 #
-#------------------------------------------------------------------------------#
-
+# Variables
 $machine_list = Get-Content ""
+$root_directory = "E:"
 
+# Script
+# Be careful when making edits below this point
 for($i=0; $i -le 1; $i++){
   $vmname = $machine_list[$i]
-  $location = "E:\VMs\$vmname"
-  
+  $location = "$root_directory\VMs\$vmname"
+
   New-VHD -Path "" `
     -Differencing `
     -ParentPath ""
@@ -35,6 +31,7 @@ for($i=0; $i -le 1; $i++){
 
   Set-VMFirmware $vmname `
     -EnableSecureBoot off
+
   $adapter = Get-VMNetworkAdapter `
     -VM $vmname `
     -Name *
