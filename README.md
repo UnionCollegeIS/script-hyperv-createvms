@@ -1,12 +1,10 @@
 # Hyper-V VM Creation Script
-
-## Description
 This PowerShell 4.0 script creates multiple virtual machines.
 
-### Customization and Input
+## Customization and Input
 There are several configurable variables available to customize the script to your specific configuration.
 
-#### Available Variables
+### Available Variables
 * $machine_list
   * This variable is used to tell the script the names of the VMs to create. It can accept a single string for a *single machine* or it can accept input from a `\n` *delimited list from a raw text file* using the `Get-Content` command.
 * $root_directory
